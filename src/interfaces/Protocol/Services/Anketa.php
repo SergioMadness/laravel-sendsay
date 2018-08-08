@@ -48,7 +48,7 @@ interface Anketa
      *
      * @param AnketaModel $anketa
      *
-     * @return bool
+     * @return Anketa
      */
-    public function delete(AnketaModel $anketa): bool;
+    public function delete(AnketaModel $anketa): self;
 }

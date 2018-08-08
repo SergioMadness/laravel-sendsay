@@ -1,5 +1,6 @@
 <?php namespace professionalweb\sendsay\models\Anketa;
 
+use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\AnketaQuestion;
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as IAnketa;
 
 /**
@@ -12,6 +13,11 @@ class Anketa implements IAnketa
      * @var array
      */
     private $data;
+
+    /**
+     * @var AnketaQuestion[]
+     */
+    private $questions = [];
 
     public function __construct(array $data = [])
     {
@@ -48,6 +54,53 @@ class Anketa implements IAnketa
         return [
             'id'   => $this->getId(),
             'name' => $this->getName(),
+            'obj'  => array_map(function (AnketaQuestion $question) {
+                return $question->toArray();
+            }, $this->getQuestions()),
         ];
+    }
+
+    /**
+     * Set questions
+     *
+     * @param array $questions
+     *
+     * @return Anketa
+     */
+    public function setQuestions(array $questions): self
+    {
+        $this->questions = $questions;
+
+        return $this;
+    }
+
+    /**
+     * Get available questions
+     *
+     * @return AnketaQuestion[]
+     */
+    public function getQuestions(): array
+    {
+        return [];
+    }
+
+    /**
+     * Check anketa has question
+     *
+     * @param string $id
+     *
+     * @return bool
+     */
+    public function hasQuestions(string $id): bool
+    {
+        $questions = $this->getQuestions();
+
+        foreach ($questions as $question) {
+            if ($question->getId() === $id) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

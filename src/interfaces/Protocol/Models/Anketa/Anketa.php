@@ -21,4 +21,20 @@ interface Anketa extends Arrayable
      * @return string
      */
     public function getName(): string;
+
+    /**
+     * Get available questions
+     *
+     * @return AnketaQuestion[]
+     */
+    public function getQuestions(): array;
+
+    /**
+     * Check anketa has question
+     *
+     * @param string $id
+     *
+     * @return bool
+     */
+    public function hasQuestions(string $id): bool;
 }

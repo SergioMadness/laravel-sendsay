@@ -16,10 +16,15 @@ class Member extends Service implements IMemberService
      * @param IMemberModel $member
      *
      * @return IMemberModel
+     * @throws \Exception
      */
     public function save(IMemberModel $member): IMemberModel
     {
         $response = $this->getProtocol()->call(self::METHOD_SAVE, $member->toArray());
+
+        if ($response->isError()) {
+            throw new \Exception($response->getError()[0]->getMessage());
+        }
 
         return $member;
     }
@@ -30,12 +35,17 @@ class Member extends Service implements IMemberService
      * @param string $email
      *
      * @return bool
+     * @throws \Exception
      */
     public function exists(string $email): bool
     {
         $response = $this->getProtocol()->call(self::METHOD_EXISTS, [
             'email' => $email,
         ]);
+
+        if ($response->isError()) {
+            throw new \Exception($response->getError()[0]->getMessage());
+        }
 
         return !$response->isError() && $response->getData()['list'][$email] === 1;
     }
@@ -56,7 +66,7 @@ class Member extends Service implements IMemberService
         ]);
 
         if ($response->isError()) {
-            throw new \Exception($response->getError()[0]->getMessage);
+            throw new \Exception($response->getError()[0]->getMessage());
         }
         foreach ($response->getData()['list'] as $member) {
             $result[] = null;
@@ -91,15 +101,20 @@ class Member extends Service implements IMemberService
      *
      * @param IMemberModel $member
      *
-     * @return bool
+     * @return IMemberService
+     * @throws \Exception
      */
-    public function delete(IMemberModel $member): bool
+    public function delete(IMemberModel $member): IMemberService
     {
         $response = $this->getProtocol()->call(self::METHOD_DELETE, [
             'email' => $member->getEmail(),
         ]);
 
-        return !$response->isError();
+        if ($response->isError()) {
+            throw new \Exception($response->getError()[0]->getMessage());
+        }
+
+        return $this;
     }
 
     /**

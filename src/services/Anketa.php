@@ -92,7 +92,13 @@ class Anketa extends Service implements IAnketa
      */
     public function exists(string $id): bool
     {
-        return $this->get($id) !== null;
+        try {
+            $this->get($id);
+
+            return true;
+        } catch (\Exception $ex) {
+            return false;
+        }
     }
 
     /**
@@ -100,10 +106,10 @@ class Anketa extends Service implements IAnketa
      *
      * @param IAnketaModel $anketa
      *
-     * @return bool
+     * @return IAnketa
      * @throws \Exception
      */
-    public function delete(IAnketaModel $anketa): bool
+    public function delete(IAnketaModel $anketa): IAnketa
     {
         $response = $this->getProtocol()->call(self::METHOD_DELETE, [
             'id' => $anketa->getId(),
@@ -113,6 +119,6 @@ class Anketa extends Service implements IAnketa
             throw new \Exception($response->getError()[0]->getMessage());
         }
 
-        return true;
+        return $this;
     }
 }

@@ -52,7 +52,7 @@ interface Member
      *
      * @return array
      */
-    public function all():array;
+    public function all(): array;
 
     /**
      * Get member by email
@@ -68,7 +68,7 @@ interface Member
      *
      * @param IMemberModel $member
      *
-     * @return bool
+     * @return IMemberModel
      */
-    public function delete(IMemberModel $member): bool;
+    public function delete(IMemberModel $member): self;
 }

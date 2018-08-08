@@ -38,11 +38,11 @@ class Error implements IError
     }
 
     /**
-     * @param int $code
+     * @param string $code
      *
      * @return $this
      */
-    public function setCode(int $code): self
+    public function setCode(string $code): self
     {
         $this->code = $code;
 

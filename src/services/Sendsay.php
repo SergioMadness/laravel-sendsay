@@ -1,5 +1,6 @@
 <?php namespace professionalweb\sendsay\services;
 
+use professionalweb\sendsay\interfaces\Protocol\Services\AnketaQuestion;
 use professionalweb\sendsay\interfaces\Sendsay as ISendsay;
 use professionalweb\sendsay\interfaces\Protocol\Services\Anketa;
 use professionalweb\sendsay\interfaces\Protocol\Services\Member;
@@ -29,5 +30,17 @@ class Sendsay implements ISendsay
     public function anketas(): Anketa
     {
         return app(Anketa::class);
+    }
+
+    /**
+     * Get service to work with questions for specified anketa
+     *
+     * @param Anketa $anketa
+     *
+     * @return AnketaQuestion
+     */
+    public function questions(Anketa $anketa): AnketaQuestion
+    {
+        // TODO: Implement questions() method.
     }
 }

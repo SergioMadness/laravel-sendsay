@@ -14,10 +14,10 @@ class Response implements IResponse
 
     public function __construct(string $data = '', bool $error = false)
     {
+        $this->error = $error;
         if (!empty($data)) {
             $this->setData($data);
         }
-        $this->error = $error;
     }
 
     /**
@@ -31,6 +31,9 @@ class Response implements IResponse
     {
         if (($response = json_decode($data, true)) !== null) {
             $this->data = $response;
+        }
+        if (isset($this->data['errors'])) {
+            $this->error = true;
         }
 
         return $this;
@@ -65,9 +68,9 @@ class Response implements IResponse
     {
         $result = [];
 
-        if (\is_array($this->data) && $this->isError()) {
-            foreach ($this->data as $error) {
-                $result[] = new Error($error['code'] ?? 0, $error['message'] ?? '');
+        if (\is_array($this->data['errors']) && $this->isError()) {
+            foreach ($this->data['errors'] as $error) {
+                $result[] = new Error($error['id'] ?? '', $error['explain'] ?? '');
             }
         }
 
