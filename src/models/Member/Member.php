@@ -1,7 +1,7 @@
 <?php namespace professionalweb\sendsay\models\Member;
 
-use professionalweb\sendsay\Protocol\Models\Member\Member as IMember;
-use professionalweb\sendsay\Protocol\Models\Member\MemberData;
+use professionalweb\sendsay\interfaces\Protocol\Models\Member\MemberData;
+use professionalweb\sendsay\interfaces\Protocol\Models\Member\Member as IMember;
 
 class Member implements IMember
 {

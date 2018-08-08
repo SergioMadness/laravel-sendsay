@@ -1,7 +1,7 @@
 <?php namespace professionalweb\sendsay\services;
 
-use professionalweb\sendsay\Protocol\Services\Member as IMemberService;
-use professionalweb\sendsay\Protocol\Models\Member\Member as IMemberModel;
+use professionalweb\sendsay\interfaces\Protocol\Services\Member as IMemberService;
+use professionalweb\sendsay\interfaces\Protocol\Models\Member\Member as IMemberModel;
 
 /**
  * Wrapper for member service

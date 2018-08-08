@@ -1,4 +1,4 @@
-<?php namespace professionalweb\sendsay\Protocol\Models\Anketa;
+<?php namespace professionalweb\sendsay\interfaces\Protocol\Models\Anketa;
 
 /**
  * Interface for anketa answers

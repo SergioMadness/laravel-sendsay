@@ -1,6 +1,6 @@
 <?php namespace professionalweb\sendsay\models;
 
-use professionalweb\sendsay\Protocol\Error as IError;
+use professionalweb\sendsay\interfaces\Protocol\Error as IError;
 
 /**
  * Class-wrapper for error
@@ -20,9 +20,9 @@ class Error implements IError
     /**
      * Get error code
      *
-     * @return int
+     * @return string
      */
-    public function getCode(): int
+    public function getCode(): string
     {
         return $this->code;
     }

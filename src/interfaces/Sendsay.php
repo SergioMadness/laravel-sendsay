@@ -1,7 +1,7 @@
 <?php namespace professionalweb\sendsay\interfaces;
 
-use professionalweb\sendsay\Protocol\Services\Anketa;
-use professionalweb\sendsay\Protocol\Services\Member;
+use professionalweb\sendsay\interfaces\Protocol\Services\Anketa;
+use professionalweb\sendsay\interfaces\Protocol\Services\Member;
 
 /**
  * Interface for main Sendsay service

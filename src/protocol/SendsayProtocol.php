@@ -1,7 +1,7 @@
-<?php namespace professionalweb\sendsay;
+<?php namespace professionalweb\sendsay\protocol;
 
-use professionalweb\sendsay\Protocol\Response;
-use professionalweb\sendsay\Protocol\SendsayProtocol as ISendsayProtocol;
+use professionalweb\sendsay\interfaces\Protocol\Response;
+use professionalweb\sendsay\interfaces\Protocol\SendsayProtocol as ISendsayProtocol;
 
 /**
  * Class-wrapper for Sendsay protocol

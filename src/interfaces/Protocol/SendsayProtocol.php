@@ -1,4 +1,4 @@
-<?php namespace professionalweb\sendsay\Protocol;
+<?php namespace professionalweb\sendsay\interfaces\Protocol;
 
 /**
  * Interface for Sendsay API wrapper

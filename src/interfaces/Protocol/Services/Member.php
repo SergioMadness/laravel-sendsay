@@ -1,6 +1,6 @@
-<?php namespace professionalweb\sendsay\Protocol\Services;
+<?php namespace professionalweb\sendsay\interfaces\Protocol\Services;
 
-use professionalweb\sendsay\Protocol\Models\Member\Member as IMemberModel;
+use professionalweb\sendsay\interfaces\Protocol\Models\Member\Member as IMemberModel;
 
 /**
  * Interface for service to work with members

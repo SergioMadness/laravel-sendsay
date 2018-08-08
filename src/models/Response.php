@@ -1,6 +1,6 @@
 <?php namespace professionalweb\sendsay\models;
 
-use professionalweb\sendsay\Protocol\Response as IResponse;
+use professionalweb\sendsay\interfaces\Protocol\Response as IResponse;
 
 /**
  * Class-wrapper for API response

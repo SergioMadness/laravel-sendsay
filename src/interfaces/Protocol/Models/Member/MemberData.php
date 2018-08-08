@@ -1,4 +1,4 @@
-<?php namespace professionalweb\sendsay\Protocol\Models\Member;
+<?php namespace professionalweb\sendsay\interfaces\Protocol\Models\Member;
 
 use Illuminate\Contracts\Support\Arrayable;
 
