@@ -6,9 +6,9 @@ use professionalweb\sendsay\services\Member;
 use professionalweb\sendsay\services\Sendsay;
 use professionalweb\sendsay\protocol\SendsayProtocol;
 use professionalweb\sendsay\interfaces\Sendsay as ISendsay;
-use professionalweb\sendsay\protocol\SendsayProtocol as ISendsayProtocol;
 use professionalweb\sendsay\interfaces\Protocol\Services\Anketa as IAnketa;
 use professionalweb\sendsay\interfaces\Protocol\Services\Member as IMember;
+use professionalweb\sendsay\interfaces\Protocol\SendsayProtocol as ISendsayProtocol;
 
 class SendsayProvider extends ServiceProvider
 {

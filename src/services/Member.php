@@ -118,7 +118,7 @@ class Member extends Service implements IMemberService
 
         $result = [];
         foreach ($response->getData()['list'] as $item) {
-            $result[] = new MemberModel($item);
+            $result[] = new MemberModel(['email' => $item]);
         }
 
         return $result;

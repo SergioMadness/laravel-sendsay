@@ -40,7 +40,7 @@ class SendsayProtocol implements ISendsayProtocol
      *
      * @return Response
      */
-    public function call(string $method, array $params): IResponse
+    public function call(string $method, array $params = []): IResponse
     {
         $params['apikey'] = $this->getApiKey();
         $params['action'] = $method;
@@ -132,7 +132,7 @@ class SendsayProtocol implements ISendsayProtocol
     /**
      * @return string
      */
-    public function getApiVersion()
+    public function getApiVersion(): string
     {
         return $this->apiVersion;
     }
@@ -142,7 +142,7 @@ class SendsayProtocol implements ISendsayProtocol
      *
      * @return SendsayProtocol
      */
-    public function setApiVersion($apiVersion): self
+    public function setApiVersion(string $apiVersion): self
     {
         $this->apiVersion = $apiVersion;
 
