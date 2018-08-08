@@ -83,7 +83,7 @@ class Member extends Service implements IMemberService
             throw new \Exception($response->getError()[0]->getMessage());
         }
 
-        return new MemberModel();
+        return new MemberModel($response->getData());
     }
 
     /**

@@ -8,6 +8,16 @@ use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as AnketaMo
  */
 interface Anketa
 {
+    public const METHOD_LIST = 'anketa.list';
+
+    public const METHOD_GET = 'anketa.get';
+
+    public const METHOD_DELETE = 'anketa.delete';
+
+    public const METHOD_CREATE = 'anketa.create';
+
+    public const METHOD_SAVE = 'anketa.set';
+
     /**
      * Save anketa
      *
