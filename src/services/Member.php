@@ -1,5 +1,6 @@
 <?php namespace professionalweb\sendsay\services;
 
+use professionalweb\sendsay\models\Member\Member as MemberModel;
 use professionalweb\sendsay\interfaces\Protocol\Services\Member as IMemberService;
 use professionalweb\sendsay\interfaces\Protocol\Models\Member\Member as IMemberModel;
 
@@ -54,14 +55,14 @@ class Member extends Service implements IMemberService
             'email' => $email,
         ]);
 
-        if (!$response->isError()) {
-            foreach ($response->getData()['list'] as $member) {
-                $result[] = null;
-            }
-
-            return $result;
+        if ($response->isError()) {
+            throw new \Exception($response->getError()[0]->getMessage);
         }
-        throw new \Exception($response->getError()[0]->getMessage);
+        foreach ($response->getData()['list'] as $member) {
+            $result[] = null;
+        }
+
+        return $result;
     }
 
     /**
@@ -78,10 +79,11 @@ class Member extends Service implements IMemberService
             'email' => $email,
         ]);
 
-        if (!$response->isError()) {
-            return;
+        if ($response->isError()) {
+            throw new \Exception($response->getError()[0]->getMessage());
         }
-        throw new \Exception($response->getError()[0]->getMessage());
+
+        return new MemberModel();
     }
 
     /**
@@ -98,5 +100,27 @@ class Member extends Service implements IMemberService
         ]);
 
         return !$response->isError();
+    }
+
+    /**
+     * Get members
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function all(): array
+    {
+        $response = $this->getProtocol()->call(self::METHOD_LIST, []);
+
+        if ($response->isError()) {
+            throw new \Exception($response->getError()[0]->getMessage());
+        }
+
+        $result = [];
+        foreach ($response->getData()['list'] as $item) {
+            $result[] = new MemberModel($item);
+        }
+
+        return $result;
     }
 }

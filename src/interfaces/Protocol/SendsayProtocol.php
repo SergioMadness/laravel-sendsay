@@ -14,5 +14,5 @@ interface SendsayProtocol
      *
      * @return Response
      */
-    public function call(string $method, array $params): Response;
+    public function call(string $method, array $params = []): Response;
 }

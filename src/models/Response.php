@@ -73,4 +73,24 @@ class Response implements IResponse
 
         return $result;
     }
+
+    /**
+     * Check redirect needed
+     *
+     * @return bool
+     */
+    public function needRedirect(): bool
+    {
+        return isset($this->data['REDIRECT']);
+    }
+
+    /**
+     * Get URL for redirect
+     *
+     * @return string
+     */
+    public function getRedirectUrl(): string
+    {
+        return $this->data['REDIRECT'] ?? '';
+    }
 }

@@ -14,6 +14,8 @@ interface Member
 
     public const METHOD_FIND = 'member.find';
 
+    public const METHOD_LIST = 'member.list';
+
     public const METHOD_GET = 'member.get';
 
     public const METHOD_DELETE = 'member.delete';
@@ -44,6 +46,13 @@ interface Member
      * @return array
      */
     public function find(string $email): array;
+
+    /**
+     * Get members
+     *
+     * @return array
+     */
+    public function all():array;
 
     /**
      * Get member by email

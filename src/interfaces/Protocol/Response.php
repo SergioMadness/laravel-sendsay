@@ -14,6 +14,20 @@ interface Response
     public function isError(): bool;
 
     /**
+     * Check redirect needed
+     *
+     * @return bool
+     */
+    public function needRedirect(): bool;
+
+    /**
+     * Get URL for redirect
+     *
+     * @return string
+     */
+    public function getRedirectUrl(): string;
+
+    /**
      * Get response
      *
      * @return mixed

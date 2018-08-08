@@ -1,6 +1,6 @@
 <?php namespace professionalweb\sendsay\services;
 
-use professionalweb\sendsay\Protocol\SendsayProtocol;
+use professionalweb\sendsay\interfaces\Protocol\SendsayProtocol;
 
 /**
  * Base methods for sendsay service
