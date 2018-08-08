@@ -1,0 +1,44 @@
+{
+  "name": "professionalweb/laravel-sendsay",
+  "description": "Library to work with 'sendsay'",
+  "homepage": "http://web-development.pw/",
+  "keywords": [
+    "pwf",
+    "professional web",
+    "web-development.pw",
+    "composer",
+    "sendsay",
+    "laravel"
+  ],
+  "minimum-stability": "stable",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Zinchenko Sergey",
+      "email": "zinchenko@web-development.pw"
+    }
+  ],
+  "support": {
+    "email": "info@web-development.pw",
+    "issues": "https://github.com/SergioMadness/payonline/issues",
+    "wiki": "https://github.com/SergioMadness/payonline/wiki",
+    "source": "https://github.com/SergioMadness/payonline/releases"
+  },
+  "require": {
+    "php": ">=7.1",
+    "illuminate/support": "5.2.* || 5.3.* || 5.4.* || 5.5.*"
+  },
+  "require-dev": {
+  },
+  "config": {
+    "process-timeout": 1800
+  },
+  "autoload": {
+    "psr-4": {
+      "professionalweb\\sendsay\\": "src/"
+    }
+  },
+  "suggest": {
+  }
+}
