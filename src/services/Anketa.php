@@ -78,8 +78,8 @@ class Anketa extends Service implements IAnketa
         }
 
         $anketa = new AnketaModel(array_merge([
-            'id' => $response->getData()['id'],
-        ], $response->getData()['param']));
+            'id' => $response->getData()['obj']['id'],
+        ], $response->getData()['obj']['param']));
 
         return $anketa;
     }

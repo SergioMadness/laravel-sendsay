@@ -43,6 +43,6 @@ class Sendsay implements ISendsay
      */
     public function questions(IAnketaModel $anketa): AnketaQuestion
     {
-        return app(IAnketaQuestion::class);
+        return app(AnketaQuestion::class)->setAnketa($anketa);
     }
 }

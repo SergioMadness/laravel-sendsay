@@ -85,6 +85,9 @@ class AnketaQuestion implements IAnketaQuestion
         if ($type === self::TYPE_MULTIPLE_CHOICE || $type === self::TYPE_SINGLE_CHOICE) {
             $questionData['answers'] = $this->getAnswers();
         }
+        if ($type === self::TYPE_FREE) {
+            $questionData['width'] = self::DEFAULT_FREE_WIDTH;
+        }
 
         return [
             'anketa.id' => $this->getAnketaId(),
