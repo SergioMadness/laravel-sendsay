@@ -1,9 +1,10 @@
 <?php namespace professionalweb\sendsay\services;
 
-use professionalweb\sendsay\interfaces\Protocol\Services\AnketaQuestion;
 use professionalweb\sendsay\interfaces\Sendsay as ISendsay;
 use professionalweb\sendsay\interfaces\Protocol\Services\Anketa;
 use professionalweb\sendsay\interfaces\Protocol\Services\Member;
+use professionalweb\sendsay\interfaces\Protocol\Services\AnketaQuestion;
+use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as IAnketaModel;
 
 /**
  * Sendsay service
@@ -39,7 +40,7 @@ class Sendsay implements ISendsay
      *
      * @return AnketaQuestion
      */
-    public function questions(Anketa $anketa): AnketaQuestion
+    public function questions(IAnketaModel $anketa): AnketaQuestion
     {
         // TODO: Implement questions() method.
     }
