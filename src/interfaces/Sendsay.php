@@ -28,7 +28,7 @@ interface Sendsay
     /**
      * Get service to work with questions for specified anketa
      *
-     * @param Anketa $anketa
+     * @param IAnketaModel $anketa
      *
      * @return AnketaQuestion
      */

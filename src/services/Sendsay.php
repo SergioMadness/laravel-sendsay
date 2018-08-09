@@ -5,6 +5,7 @@ use professionalweb\sendsay\interfaces\Protocol\Services\Anketa;
 use professionalweb\sendsay\interfaces\Protocol\Services\Member;
 use professionalweb\sendsay\interfaces\Protocol\Services\AnketaQuestion;
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as IAnketaModel;
+use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\AnketaQuestion as IAnketaQuestion;
 
 /**
  * Sendsay service
@@ -36,12 +37,12 @@ class Sendsay implements ISendsay
     /**
      * Get service to work with questions for specified anketa
      *
-     * @param Anketa $anketa
+     * @param IAnketaModel $anketa
      *
      * @return AnketaQuestion
      */
     public function questions(IAnketaModel $anketa): AnketaQuestion
     {
-        // TODO: Implement questions() method.
+        return app(IAnketaQuestion::class);
     }
 }
