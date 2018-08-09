@@ -1,5 +1,6 @@
 <?php namespace professionalweb\sendsay\models\Member;
 
+use professionalweb\sendsay\models\Member\MemberData as MemberDataModel;
 use professionalweb\sendsay\interfaces\Protocol\Models\Member\MemberData;
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\AnketaAnswer;
 use professionalweb\sendsay\interfaces\Protocol\Models\Member\Member as IMember;
@@ -82,7 +83,15 @@ class Member implements IMember
      */
     public function getData(): array
     {
-        return $this->data['fields'] ?? [];
+        $result = [];
+
+        if (isset($this->data['datakey'])) {
+            foreach ($this->data['datakey'] as $key => $val) {
+                $result[] = new MemberDataModel($key, '', $val);
+            }
+        }
+
+        return $result;
     }
 
     /**
