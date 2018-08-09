@@ -144,7 +144,11 @@ class Member implements IMember
             $anketas[$answers->getAnketaId()] = $answers->toArray();
         }
 
-        return [
+        $dataKey = array_map(function (MemberData $item) {
+            return $item->toArray();
+        }, $this->getData());
+
+        $data = [
             'email'                    => $this->getEmail(),
             'addr_type'                => 'email',
             'source'                   => $this->getIp(),
@@ -153,5 +157,13 @@ class Member implements IMember
             'newbie.letter.no-confirm' => $this->getNonConfirmationLetterTemplateId(),
             'obj'                      => $anketas,
         ];
+        if (!empty($anketas)) {
+            $data['obj'] = $anketas;
+        }
+        if (!empty($dataKey)) {
+            $data['datakey'] = $dataKey;
+        }
+
+        return $data;
     }
 }

@@ -28,7 +28,7 @@ class MemberData implements IMemberData
      */
     private $type;
 
-    public function __construct(string $key = '', string $mode = '', string $value = '', string $type = '')
+    public function __construct(string $key = '', string $mode = '', string $value = '', ?string $type = null)
     {
         $this->key = $key;
         $this->mode = $mode;
@@ -86,7 +86,7 @@ class MemberData implements IMemberData
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }

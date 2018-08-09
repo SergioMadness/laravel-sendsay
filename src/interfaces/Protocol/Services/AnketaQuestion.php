@@ -38,7 +38,7 @@ interface AnketaQuestion
      *
      * @param IAnketaQuestionModel $anketaQuestion
      *
-     * @return IAnketaQuestionModel
+     * @return AnketaQuestion
      */
     public function delete(IAnketaQuestionModel $anketaQuestion): self;
 }

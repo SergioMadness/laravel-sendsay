@@ -51,13 +51,22 @@ class Anketa implements IAnketa
      */
     public function toArray()
     {
-        return [
-            'id'   => $this->getId(),
+        $data = [
             'name' => $this->getName(),
-            'obj'  => array_map(function (AnketaQuestion $question) {
-                return $question->toArray();
-            }, $this->getQuestions()),
         ];
+
+        if (!empty($id = $this->getId())) {
+            $data['id'] = $id;
+        }
+
+//        $questions = $this->getQuestions();
+//        if (!empty($questions)) {
+//            $data['obj'] = array_map(function (AnketaQuestion $question) {
+//                return $question->toArray();
+//            }, $questions);
+//        }
+
+        return $data;
     }
 
     /**
@@ -102,5 +111,19 @@ class Anketa implements IAnketa
         }
 
         return false;
+    }
+
+    /**
+     * Set Sendsay id
+     *
+     * @param string $id
+     *
+     * @return IAnketa
+     */
+    public function setId(string $id): IAnketa
+    {
+        $this->data['id'] = $id;
+
+        return $this;
     }
 }

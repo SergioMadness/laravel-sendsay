@@ -123,5 +123,5 @@ interface MemberData extends Arrayable
      *
      * @return string
      */
-    public function getType(): string;
+    public function getType(): ?string;
 }

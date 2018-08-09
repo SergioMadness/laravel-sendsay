@@ -16,6 +16,15 @@ interface Anketa extends Arrayable
     public function getId(): string;
 
     /**
+     * Set Sendsay id
+     *
+     * @param string $id
+     *
+     * @return Anketa
+     */
+    public function setId(string $id): self;
+
+    /**
      * Get anketa name
      *
      * @return string
