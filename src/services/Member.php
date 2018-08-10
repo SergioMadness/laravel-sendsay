@@ -32,7 +32,7 @@ class Member extends Service implements IMemberService
         if ($response->isError()) {
             throw new \Exception($response->getError()[0]->getMessage());
         }
-        if (isset($data['obj'])) {
+        if (isset($data['obj']) && !empty($data['obj'])) {
             if (isset($data['datakey'])) {
                 unset($data['datakey']);
             }
