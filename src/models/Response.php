@@ -70,7 +70,11 @@ class Response implements IResponse
 
         if (\is_array($this->data['errors']) && $this->isError()) {
             foreach ($this->data['errors'] as $error) {
-                $result[] = new Error($error['id'] ?? '', $error['explain'] ?? '');
+                $explain = $error['explain'];
+                if (is_array($explain)) {
+                    $explain = implode(', ', $explain);
+                }
+                $result[] = new Error($error['id'] ?? '', $explain ?? '');
             }
         }
 
