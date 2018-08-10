@@ -28,18 +28,18 @@ class Member extends Service implements IMemberService
                 unset($dataWithDataKey['obj']);
             }
             $response = $this->getProtocol()->call(self::METHOD_SAVE, $dataWithDataKey);
-        }
-        if ($response->isError()) {
-            throw new \Exception($response->getError()[0]->getMessage());
+            if ($response->isError()) {
+                throw new \Exception($response->getError()[0]->getMessage());
+            }
         }
         if (isset($data['obj']) && !empty($data['obj'])) {
             if (isset($data['datakey'])) {
                 unset($data['datakey']);
             }
             $response = $this->getProtocol()->call(self::METHOD_SAVE, $data);
-        }
-        if ($response->isError()) {
-            throw new \Exception($response->getError()[0]->getMessage());
+            if ($response->isError()) {
+                throw new \Exception($response->getError()[0]->getMessage());
+            }
         }
 
         return $member;
