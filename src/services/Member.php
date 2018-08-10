@@ -20,8 +20,24 @@ class Member extends Service implements IMemberService
      */
     public function save(IMemberModel $member): IMemberModel
     {
-        $response = $this->getProtocol()->call(self::METHOD_SAVE, $member->toArray());
+        $data = $member->toArray();
 
+        if (isset($data['datakey'])) {
+            $dataWithDataKey = $data;
+            if (isset($dataWithDataKey['obj'])) {
+                unset($dataWithDataKey['obj']);
+            }
+            $response = $this->getProtocol()->call(self::METHOD_SAVE, $dataWithDataKey);
+        }
+        if ($response->isError()) {
+            throw new \Exception($response->getError()[0]->getMessage());
+        }
+        if (isset($data['obj'])) {
+            if (isset($data['datakey'])) {
+                unset($data['datakey']);
+            }
+            $response = $this->getProtocol()->call(self::METHOD_SAVE, $data);
+        }
         if ($response->isError()) {
             throw new \Exception($response->getError()[0]->getMessage());
         }

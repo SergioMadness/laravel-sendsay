@@ -31,7 +31,9 @@ class Anketa extends Service implements IAnketa
             throw new \Exception($response->getError()[0]->getMessage());
         }
 
-        $anketa->setId($response->getData()['id']);
+        if (isset($response->getData()['id'])) {
+            $anketa->setId($response->getData()['id']);
+        }
 
         return $anketa;
     }

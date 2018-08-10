@@ -59,13 +59,6 @@ class Anketa implements IAnketa
             $data['id'] = $id;
         }
 
-//        $questions = $this->getQuestions();
-//        if (!empty($questions)) {
-//            $data['obj'] = array_map(function (AnketaQuestion $question) {
-//                return $question->toArray();
-//            }, $questions);
-//        }
-
         return $data;
     }
 
