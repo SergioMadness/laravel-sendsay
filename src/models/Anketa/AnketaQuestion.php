@@ -59,6 +59,20 @@ class AnketaQuestion implements IAnketaQuestion
     }
 
     /**
+     * Set answers
+     *
+     * @param array $answers
+     *
+     * @return AnketaQuestion
+     */
+    public function setAnswers(array $answers): self
+    {
+        $this->data['answers'] = $answers;
+
+        return $this;
+    }
+
+    /**
      * Get available items
      *
      * @return array
@@ -83,9 +97,6 @@ class AnketaQuestion implements IAnketaQuestion
             'type' => $type,
         ];
 
-        if ($type === self::TYPE_MULTIPLE_CHOICE || $type === self::TYPE_SINGLE_CHOICE) {
-            $questionData['answers'] = $this->getAnswers();
-        }
         if ($type === self::TYPE_FREE) {
             $questionData['width'] = self::DEFAULT_FREE_WIDTH;
         }
@@ -94,7 +105,17 @@ class AnketaQuestion implements IAnketaQuestion
         }
         if ($type === self::TYPE_DATE) {
             $questionData['dtsubtype'] = 'yd';
-            $questionData['type'] = self::TYPE_DATETIME;
+            $type = $questionData['type'] = self::TYPE_DATETIME;
+        }
+        if ($type === self::TYPE_BOOL) {
+            $type = $questionData['type'] = self::TYPE_SINGLE_CHOICE;
+            $this->setAnswers([
+                '0' => '0',
+                '1' => '1',
+            ]);
+        }
+        if ($type === self::TYPE_MULTIPLE_CHOICE || $type === self::TYPE_SINGLE_CHOICE) {
+            $questionData['answers'] = $this->getAnswers();
         }
 
         return [

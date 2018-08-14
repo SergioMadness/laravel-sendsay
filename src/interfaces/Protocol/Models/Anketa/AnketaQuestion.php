@@ -12,6 +12,8 @@ interface AnketaQuestion extends Arrayable
 
     public const TYPE_FREE = 'free';
 
+    public const TYPE_BOOL = 'bool';
+
     public const TYPE_DATETIME = 'dt';
 
     public const TYPE_DATE = 'd';
