@@ -110,8 +110,8 @@ class AnketaQuestion implements IAnketaQuestion
         if ($type === self::TYPE_BOOL) {
             $type = $questionData['type'] = self::TYPE_SINGLE_CHOICE;
             $this->setAnswers([
-                '0' => '0',
                 '1' => '1',
+                '0' => '0',
             ]);
         }
         if ($type === self::TYPE_MULTIPLE_CHOICE || $type === self::TYPE_SINGLE_CHOICE) {
