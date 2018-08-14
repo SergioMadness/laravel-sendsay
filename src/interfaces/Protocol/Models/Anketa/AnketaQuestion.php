@@ -14,6 +14,8 @@ interface AnketaQuestion extends Arrayable
 
     public const TYPE_DATETIME = 'dt';
 
+    public const TYPE_DATE = 'd';
+
     public const TYPE_SINGLE_CHOICE = '1m';
 
     public const TYPE_MULTIPLE_CHOICE = 'nm';

@@ -76,6 +76,7 @@ class AnketaQuestion implements IAnketaQuestion
     public function toArray()
     {
         $type = $this->getType();
+
         $questionData = [
             'id'   => $this->getId(),
             'name' => $this->getName(),
@@ -87,6 +88,13 @@ class AnketaQuestion implements IAnketaQuestion
         }
         if ($type === self::TYPE_FREE) {
             $questionData['width'] = self::DEFAULT_FREE_WIDTH;
+        }
+        if ($type === self::TYPE_DATETIME) {
+            $questionData['dtsubtype'] = 'ys';
+        }
+        if ($type === self::TYPE_DATE) {
+            $questionData['dtsubtype'] = 'yd';
+            $questionData['type'] = self::TYPE_DATETIME;
         }
 
         return [
