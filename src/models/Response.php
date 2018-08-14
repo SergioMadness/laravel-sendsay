@@ -70,7 +70,7 @@ class Response implements IResponse
 
         if (\is_array($this->data['errors']) && $this->isError()) {
             foreach ($this->data['errors'] as $error) {
-                $explain = $error['explain'];
+                $explain = $error['explain'] ?? '';
                 if (is_array($explain)) {
                     $explain = implode(', ', $explain);
                 }
