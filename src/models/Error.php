@@ -34,7 +34,7 @@ class Error implements IError
      */
     public function getMessage(): string
     {
-        return $this->message;
+        return !empty($this->message) ? $this->message : $this->getCode();
     }
 
     /**
