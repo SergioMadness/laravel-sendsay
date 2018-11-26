@@ -1,8 +1,8 @@
 <?php namespace professionalweb\sendsay\interfaces;
 
-use professionalweb\sendsay\interfaces\Protocol\Services\Anketa;
-use professionalweb\sendsay\interfaces\Protocol\Services\Member;
-use professionalweb\sendsay\interfaces\Protocol\Services\AnketaQuestion;
+use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\Anketa;
+use professionalweb\sendsay\interfaces\Protocol\Services\Member\Member;
+use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\AnketaQuestion;
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as IAnketaModel;
 
 /**
@@ -24,13 +24,4 @@ interface Sendsay
      * @return Anketa
      */
     public function anketas(): Anketa;
-
-    /**
-     * Get service to work with questions for specified anketa
-     *
-     * @param IAnketaModel $anketa
-     *
-     * @return AnketaQuestion
-     */
-    public function questions(IAnketaModel $anketa): AnketaQuestion;
 }

@@ -1,4 +1,4 @@
-<?php namespace professionalweb\sendsay\interfaces\Protocol\Services;
+<?php namespace professionalweb\sendsay\interfaces\Protocol\Services\Member;
 
 use professionalweb\sendsay\interfaces\Protocol\Models\Member\Member as IMemberModel;
 

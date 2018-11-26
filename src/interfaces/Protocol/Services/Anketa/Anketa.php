@@ -1,4 +1,4 @@
-<?php namespace professionalweb\sendsay\interfaces\Protocol\Services;
+<?php namespace professionalweb\sendsay\interfaces\Protocol\Services\Anketa;
 
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as AnketaModel;
 
@@ -51,4 +51,14 @@ interface Anketa
      * @return Anketa
      */
     public function delete(AnketaModel $anketa): self;
+
+
+    /**
+     * Get service to work with questions for specified anketa
+     *
+     * @param AnketaModel $anketa
+     *
+     * @return AnketaQuestion
+     */
+    public function questions(AnketaModel $anketa): AnketaQuestion;
 }
