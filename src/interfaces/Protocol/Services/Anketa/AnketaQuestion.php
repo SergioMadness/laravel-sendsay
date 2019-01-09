@@ -1,5 +1,6 @@
 <?php namespace professionalweb\sendsay\interfaces\Protocol\Services\Anketa;
 
+use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa;
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\AnketaQuestion as IAnketaQuestionModel;
 
 /**
@@ -17,7 +18,7 @@ interface AnketaQuestion
     /**
      * Set parent anketa
      *
-     * @param \professionalweb\sendsay\interfaces\Protocol\Services\Anketa\Anketa $anketa
+     * @param Anketa $anketa
      *
      * @return AnketaQuestion
      */
