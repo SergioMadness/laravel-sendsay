@@ -1,6 +1,7 @@
 <?php namespace professionalweb\sendsay\services;
 
 use professionalweb\sendsay\models\Anketa\Anketa as AnketaModel;
+use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\AnketaQuestion;
 use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\Anketa as IAnketa;
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as IAnketaModel;
 
@@ -124,5 +125,17 @@ class Anketa extends Service implements IAnketa
         }
 
         return $this;
+    }
+
+    /**
+     * Get service to work with questions for specified anketa
+     *
+     * @param IAnketaModel $anketa
+     *
+     * @return AnketaQuestion
+     */
+    public function questions(IAnketaModel $anketa): AnketaQuestion
+    {
+        // TODO: Implement questions() method.
     }
 }
