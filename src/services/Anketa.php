@@ -2,6 +2,7 @@
 
 use professionalweb\sendsay\models\Anketa\Anketa as AnketaModel;
 use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\AnketaQuestion;
+use professionalweb\sendsay\models\Anketa\AnketaQuestion as AnketaQuestionModel;
 use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\Anketa as IAnketa;
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as IAnketaModel;
 
@@ -80,9 +81,14 @@ class Anketa extends Service implements IAnketa
             throw new \Exception($response->getError()[0]->getMessage());
         }
 
+        $responseData = $response->getData();
         $anketa = new AnketaModel(array_merge([
-            'id' => $response->getData()['obj']['id'],
-        ], $response->getData()['obj']['param']));
+            'id' => $responseData['obj']['id'],
+        ], $responseData['obj']['param']));
+
+        foreach ($responseData['obj']['quests'] as $question) {
+            $anketa->addQuestion(new AnketaQuestionModel($question));
+        }
 
         return $anketa;
     }
