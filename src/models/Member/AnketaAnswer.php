@@ -53,7 +53,7 @@ class AnketaAnswer implements IAnketaAnswer
      *
      * @return AnketaAnswer
      */
-    public function addAnswer(string $questionId, string $answerValue): self
+    public function addAnswer(string $questionId, $answerValue): self
     {
         $this->answers[$questionId] = $answerValue;
 
