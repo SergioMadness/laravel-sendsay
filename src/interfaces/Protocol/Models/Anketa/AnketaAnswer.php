@@ -1,17 +1,19 @@
-<?php namespace professionalweb\sendsay\Protocol\Models\Anketa;
+<?php namespace professionalweb\sendsay\interfaces\Protocol\Models\Anketa;
+
+use Illuminate\Contracts\Support\Arrayable;
 
 /**
  * Interface for anketa answers
  * @package professionalweb\sendsay\Protocol\Models\Anketa
  */
-interface AnketaAnswer
+interface AnketaAnswer extends Arrayable
 {
     /**
-     * Get parent model
+     * Get parent model ID
      *
-     * @return Anketa
+     * @return string
      */
-    public function getAnketa(): Anketa;
+    public function getAnketaId(): string;
 
     /**
      * Get answers

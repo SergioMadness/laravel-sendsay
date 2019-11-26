@@ -1,6 +1,7 @@
-<?php namespace professionalweb\sendsay\Protocol\Models\Member;
+<?php namespace professionalweb\sendsay\interfaces\Protocol\Models\Member;
 
 use Illuminate\Contracts\Support\Arrayable;
+use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\AnketaAnswer;
 
 /**
  * Interface for subscriber
@@ -50,5 +51,10 @@ interface Member extends Arrayable
      */
     public function getData(): array;
 
+    /**
+     * Get answers for anketas
+     *
+     * @return AnketaAnswer[]
+     */
     public function getAnketasAnswers(): array;
 }

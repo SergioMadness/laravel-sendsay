@@ -1,6 +1,6 @@
-<?php namespace professionalweb\sendsay\Protocol\Services;
+<?php namespace professionalweb\sendsay\interfaces\Protocol\Services\Member;
 
-use professionalweb\sendsay\Protocol\Models\Member\Member as IMemberModel;
+use professionalweb\sendsay\interfaces\Protocol\Models\Member\Member as IMemberModel;
 
 /**
  * Interface for service to work with members
@@ -13,6 +13,8 @@ interface Member
     public const METHOD_EXISTS = 'member.exists';
 
     public const METHOD_FIND = 'member.find';
+
+    public const METHOD_LIST = 'member.list';
 
     public const METHOD_GET = 'member.get';
 
@@ -46,6 +48,13 @@ interface Member
     public function find(string $email): array;
 
     /**
+     * Get members
+     *
+     * @return array
+     */
+    public function all(): array;
+
+    /**
      * Get member by email
      *
      * @param string $email
@@ -59,7 +68,7 @@ interface Member
      *
      * @param IMemberModel $member
      *
-     * @return bool
+     * @return IMemberModel
      */
-    public function delete(IMemberModel $member): bool;
+    public function delete(IMemberModel $member): self;
 }

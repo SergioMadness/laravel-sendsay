@@ -1,7 +1,9 @@
 <?php namespace professionalweb\sendsay\interfaces;
 
-use professionalweb\sendsay\Protocol\Services\Anketa;
-use professionalweb\sendsay\Protocol\Services\Member;
+use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\Anketa;
+use professionalweb\sendsay\interfaces\Protocol\Services\Member\Member;
+use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\AnketaQuestion;
+use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as IAnketaModel;
 
 /**
  * Interface for main Sendsay service

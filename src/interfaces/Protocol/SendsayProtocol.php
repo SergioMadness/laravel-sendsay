@@ -1,4 +1,4 @@
-<?php namespace professionalweb\sendsay\Protocol;
+<?php namespace professionalweb\sendsay\interfaces\Protocol;
 
 /**
  * Interface for Sendsay API wrapper
@@ -14,5 +14,5 @@ interface SendsayProtocol
      *
      * @return Response
      */
-    public function call(string $method, array $params): Response;
+    public function call(string $method, array $params = []): Response;
 }

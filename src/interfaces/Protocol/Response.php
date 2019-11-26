@@ -1,4 +1,4 @@
-<?php namespace professionalweb\sendsay\Protocol;
+<?php namespace professionalweb\sendsay\interfaces\Protocol;
 
 /**
  * Interface for Sendsay API response
@@ -12,6 +12,20 @@ interface Response
      * @return bool
      */
     public function isError(): bool;
+
+    /**
+     * Check redirect needed
+     *
+     * @return bool
+     */
+    public function needRedirect(): bool;
+
+    /**
+     * Get URL for redirect
+     *
+     * @return string
+     */
+    public function getRedirectUrl(): string;
 
     /**
      * Get response
