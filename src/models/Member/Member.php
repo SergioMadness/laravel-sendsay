@@ -141,7 +141,9 @@ class Member implements IMember
     {
         $anketas = [];
         foreach ($this->getAnketasAnswers() as $answers) {
-            $anketas[$answers->getAnketaId()] = $answers->toArray();
+            if (!empty($ankId = $answers->getAnketaId())) {
+                $anketas[$ankId] = $answers->toArray();
+            }
         }
 
         $dataKey = array_map(function (MemberData $item) {

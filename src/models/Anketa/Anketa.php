@@ -77,13 +77,25 @@ class Anketa implements IAnketa
     }
 
     /**
+     * Add question
+     *
+     * @return Anketa
+     */
+    public function addQuestion(AnketaQuestion $question): self
+    {
+        $this->questions[] = $question;
+
+        return $this;
+    }
+
+    /**
      * Get available questions
      *
      * @return AnketaQuestion[]
      */
     public function getQuestions(): array
     {
-        return [];
+        return $this->questions;
     }
 
     /**

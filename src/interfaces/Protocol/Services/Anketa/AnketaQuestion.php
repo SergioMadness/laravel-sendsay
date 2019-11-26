@@ -1,4 +1,4 @@
-<?php namespace professionalweb\sendsay\interfaces\Protocol\Services;
+<?php namespace professionalweb\sendsay\interfaces\Protocol\Services\Anketa;
 
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa;
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\AnketaQuestion as IAnketaQuestionModel;

@@ -1,10 +1,10 @@
 <?php namespace professionalweb\sendsay\services;
 
 use professionalweb\sendsay\interfaces\Sendsay as ISendsay;
-use professionalweb\sendsay\interfaces\Protocol\Services\Anketa;
-use professionalweb\sendsay\interfaces\Protocol\Services\Member;
+use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\Anketa;
+use professionalweb\sendsay\interfaces\Protocol\Services\Member\Member;
 use professionalweb\sendsay\interfaces\Protocol\Services\AnketaAnswers;
-use professionalweb\sendsay\interfaces\Protocol\Services\AnketaQuestion;
+use professionalweb\sendsay\interfaces\Protocol\Services\Anketa\AnketaQuestion;
 use professionalweb\sendsay\interfaces\Protocol\Models\Anketa\Anketa as IAnketaModel;
 use professionalweb\sendsay\interfaces\Protocol\Models\Member\Member as IMemberModel;
 
