@@ -46,4 +46,13 @@ interface Anketa extends Arrayable
      * @return bool
      */
     public function hasQuestions(string $id): bool;
+
+    /**
+     * Method to remove question
+     *
+     * @param string $id
+     *
+     * @return $this
+     */
+    public function removeQuestion(string $id): self;
 }
