@@ -74,6 +74,8 @@ class AnketaQuestion extends Service implements IAnketaQuestion
             throw new \Exception($response->getError()[0]->getMessage());
         }
 
+        $this->anketa->removeQuestion($anketaQuestion->getId());
+
         return $this;
     }
 }

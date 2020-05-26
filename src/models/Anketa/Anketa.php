@@ -131,4 +131,22 @@ class Anketa implements IAnketa
 
         return $this;
     }
+
+    /**
+     * Method to remove question
+     *
+     * @param string $id
+     *
+     * @return IAnketa
+     */
+    public function removeQuestion(string $id): IAnketa
+    {
+        foreach ($this->questions as $index => $question) {
+            if ($question->getId() === $id) {
+                unset($this->questions[$index]);
+            }
+        }
+
+        return $this;
+    }
 }
